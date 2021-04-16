@@ -1,0 +1,22 @@
+spring:
+  # jpa 配置
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql
+  # 数据库配置
+  datasource:
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+#    url: jdbc:oracle:thin:@192.168.10.33:1521:orcl
+#    username: shuangfu
+#    password: shuangFU123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://pc-bp18rn0tqu85a1600-public.rwlb.rds.aliyuncs.com:3306/polardb_mysql_2091uix?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: lab_1316617793
+    password: ddbc28004395_#@Aa
+
+#  security:
+#    user:
+#      name: javaboy
+#      password: 123

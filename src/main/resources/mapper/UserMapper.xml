@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjzhd.springsecurity.dao.UserDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zjzhd.springsecurity.model.entity.User">
+        <result column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="accountNonExpired" property="accountNonExpired"/>
+        <result column="accountNonLocked" property="accountNonLocked"/>
+        <result column="credentialsNonExpired" property="credentialsNonExpired"/>
+        <result column="enabled" property="enabled"/>
+        <result column="roles" property="roles"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        roleIds,
+        username,
+        password,
+        accountNonExpired,
+        accountNonLocked,
+        credentialsNonExpired,
+        enabled,
+    </sql>
+
+    <select id="selectByName" resultType="com.zjzhd.springsecurity.model.entity.User">
+        select
+            *
+        from
+             t_user
+        where
+              username = #{username}
+    </select>
+
+    <select id="getRoleName" resultType="java.lang.String">
+        select
+            r.name
+        from
+             t_user u
+
+        left join
+             t_role r
+        on
+            r.id = u.role_ids
+
+        where u.role_ids =#{role_ids}
+    </select>
+
+</mapper>
